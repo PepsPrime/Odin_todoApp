@@ -10,6 +10,8 @@ class Item {
   #description
   #dueDate
   #priority
+  #id
+  static itemArray = []
 
   constructor (title, description, dueDate, priority,project = "Default") {
     this.#title = title
@@ -17,7 +19,9 @@ class Item {
     this.#dueDate = dueDate
     this.#priority = priority
     this.#project = project
+    this.#id = Item.nbOfItem
     Item.nbOfItem++
+    Item.itemArray[this.#id] = this
   }
 
   // getters and setters
@@ -63,21 +67,33 @@ class Item {
     this.#project = projectName
   }
   
+  getId () {
+    console.log(this.#id)
+  }
+  
   static createItem (title, description, dueDate, priority) {
     let newItem = new Item(title, description, dueDate, priority)
     console.log(Item.nbOfItem)
-    return newItem
   }
 
+  static deleteItem(id) {
+    Item.itemArray[id] = null
+    Item.itemArray.splice(id,1)
+    // update id to match index in itemArray
+    Item.itemArray.filter((element) => element.#id > id ).map((element,index) => element.#id = index)
+  }
 }
 
-let test = Item.createItem('Urgent task title', 'I really must accomplish this task', '25 December 2025', 2)
-let test2 = Item.createItem("a title","a desc","a date","what priority")
-test.getTitle()
-test.setTitle("Not so urgent title")
-test.getTitle()
-test2.getTitle()
-test.getProject()
-test.setProject("Summer 2026")
-test.getProject()
+Item.createItem('Urgent task title', 'I really must accomplish this task', '25 December 2025', 2)
+Item.createItem("a title","a desc","a date","what priority")
+Item.itemArray[0].getTitle()
+Item.itemArray[0].setTitle("Not so urgent title")
+Item.itemArray[0].getTitle()
+Item.itemArray[1].getTitle()
+Item.itemArray[0].getProject()
+Item.itemArray[0].setProject("Summer 2026")
+Item.itemArray[0].getProject()
 Item.getNbOfItem()
+console.log(Item.itemArray)
+Item.deleteItem(0)
+console.log(Item.itemArray)
