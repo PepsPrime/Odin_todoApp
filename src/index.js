@@ -97,5 +97,3 @@ Item.getNbOfItem()
 console.log(Item.itemArray)
 Item.deleteItem(0)
 console.log(Item.itemArray)
-
-// commit test
