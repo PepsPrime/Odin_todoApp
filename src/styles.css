@@ -11,7 +11,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 25vw 75vw;
+    grid-template-columns: 20vw 80vw;
     grid-template-rows: 20vh 80vh;
     grid-template-areas: 
         "nav header"
@@ -35,11 +35,12 @@ nav {
     grid-area: nav;
     display: grid;
     grid-template-rows: 20vh 80vh;
+    place-content: center;
 }
 nav > img {
     
     align-self: center;
-    width: 25vw;
+    width: 15vw;
     height: 15vh;
 }
 .navList {
