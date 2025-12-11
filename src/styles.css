@@ -71,11 +71,18 @@ main {
     top: 0px;
 }
 
+.switchItem {
+    position:absolute;
+    top: 40px;
+    left: 30px;
+}
+
 .projectTitle {
     padding-left: 25px;
 }
 
 .taskList {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 5px;
