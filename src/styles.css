@@ -18,7 +18,7 @@ body {
         "nav main";
 }
 .container > * {
-    border: 1px red solid;
+    outline: 1px black solid;
 }
 
 header {
@@ -55,4 +55,34 @@ nav > img {
 
 main {
     grid-area: main;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    justify-content: start;
+    gap: 50px;
+    overflow: scroll;
+}
+
+.projectTitle {
+    padding-left: 25px;
+}
+
+.taskList {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 20px;
+}
+
+.itemList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    gap: 15px;
+}
+
+.item {
+    max-width: 200px;
+    height: 150px;
+    text-align: center;
+    align-content: center;
 }
