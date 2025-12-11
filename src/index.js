@@ -11,15 +11,18 @@ class Item {
   #dueDate
   #priority
   #id
+  #type
   static itemArray = []
 
-  constructor (title, description, dueDate, priority,project = "Default") {
+  constructor (title, description, dueDate, priority,project,type) {
     this.#title = title
     this.#description = description
     this.#dueDate = dueDate
     this.#priority = priority
     this.#project = project
     this.#id = Item.nbOfItem
+    // define if task is checklist or default (without checkboxes)
+    this.#type = type
     Item.nbOfItem++
     Item.itemArray[this.#id] = this
   }
@@ -71,8 +74,8 @@ class Item {
     console.log(this.#id)
   }
   
-  static createItem (title, description, dueDate, priority) {
-    let newItem = new Item(title, description, dueDate, priority)
+  static createItem (title, description, dueDate, priority,project="Default",type="Default") {
+    let newItem = new Item(title, description, dueDate, priority,project,type)
     console.log(Item.nbOfItem)
   }
 
@@ -81,6 +84,7 @@ class Item {
     Item.itemArray.splice(id,1)
     // update id to match index in itemArray
     Item.itemArray.filter((element) => element.#id > id ).map((element,index) => element.#id = index)
+    Item.nbOfItem--
   }
 }
 
