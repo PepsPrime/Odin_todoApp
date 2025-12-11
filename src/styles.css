@@ -54,6 +54,7 @@ nav > img {
 }
 
 main {
+    position: relative;
     grid-area: main;
     display: flex;
     flex-direction: column;
@@ -61,6 +62,12 @@ main {
     justify-content: start;
     gap: 50px;
     overflow: scroll;
+}
+
+.switch {
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 
 .projectTitle {
