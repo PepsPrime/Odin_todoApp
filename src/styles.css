@@ -10,6 +10,7 @@ body {
 }
 
 .container {
+    z-index: 1;
     display: grid;
     grid-template-columns: 20vw 80vw;
     grid-template-rows: 20vh 80vh;
@@ -101,3 +102,78 @@ main {
     text-align: center;
     align-content: center;
 }
+
+.focusContainer {
+    /* container used to blur background when an item is focused */
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    position: absolute;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* disabling it */
+    
+    
+}
+
+.focusedItem {
+    position: relative;
+    background-color: rgba(240, 248, 255, 0.466);
+    outline: 1px red solid;
+    height: 50vh;
+    width: 45vw;
+
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+    justify-content: space-between;
+    
+}
+
+.exit {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 25px;
+}
+
+.infoItem {
+    width: 100%;
+    max-height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px 30px 30px;
+}
+
+.infoItem > h1 {
+    grid-column: 1 / -1;
+}
+
+.descriptionField {
+    height: 100%;
+    padding: 20px 0;
+}
+
+.focusedItemButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.addItemButton {
+    /* reset some button styling */
+    background: none;
+    font: inherit;
+    cursor: pointer;
+    margin: 50px 0px;
+    height: fit-content;
+    width: 50px;
+    justify-self: center;
+    align-self: center;
+}
+
