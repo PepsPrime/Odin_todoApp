@@ -10,17 +10,17 @@
 <body>
     <div class="focusContainer">
         <div class="focusedItem">
-            <button class="exit">X</button>
+            <img src="./images/close-button-icon.svg" class="exitButton"></img>
             <div class="infoItem">
-            <h1>Title</h1>
-                <p>due date</p>
-                <p>project</p>
-                <p>priority</p>
+                <h1>Title</h1>
+                <div>due date</div>
+                <div>project</div>
+                <div>priority</div>
             </div>
-            <p class="descriptionField">Description</p>
+            <div class="descriptionField">Description</div>
             <div class="focusedItemButtons">
-                <button>Delete item</button>
-                <button>Validate task</button>
+                <button class="deleteItemButton">&#10799</button>
+                <button class="validateTaskButton">&#10003</button>
             </div>
 
         </div>
@@ -36,40 +36,54 @@
             <ul class="navList">
                 <li>Create task</li>
                 <li>Create Project</li>
-                <li>Projects</li>
+                <li>Projects
+                    <ul class="navProjectList">
+                        <li>Default</li>
+                        <li>Summer 2026</li>
+                    </ul>
+                </li>
                 <li>Calendar</li>
             </ul>
         </nav>
         <main>
             <button class="switch">Switch view</button>
             <section class="taskList" id="Default">
-                <button class="switchItem">Switch view</button>
                 <h3 class="projectTitle">Default</h3>
+                <!--    <button class="switchItem">Switch view</button> -->
                 <div class="itemList">
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
+                    <div class="item">
+                        <img src="images/expand.svg">
+                        <h3>Title</h3>
+                        <span class="priority">priority</span>
+                        <p>dueDate</p>
+                        <p class="itemShortDescription">Some short description</p>
+                        <div class="focusedItemButtons">
+                            <button class="deleteItemButton">&#10799</button>
+                            <button class="validateTaskButton">&#10003</button>
+                        </div>
+                    </div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
                     <button class="addItemButton">+</button>
                 </div>
-                <hr>
             </section>
-
+            <hr>
             <section class="taskList" id="Summer 2026">
                 <h3 class="projectTitle">Summer 2026</h3>
-                <button class="switchItem">Switch view</button>
+                <!-- <button class="switchItem">Switch view</button> -->
                 <div class="itemList">
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
-                    <p class="item">An item</p>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
+                    <div class="item">An item</div>
                     <button class="addItemButton">+</button>
                 </div>
             </section>

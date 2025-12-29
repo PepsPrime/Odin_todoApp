@@ -3,8 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --bg-main: #f8f8f4;
+    --bg-card: #FFFFFF;
+    --sidebar: #1F2937;
+    --text-main: #111827;
+    --text-on-black: #cacaca;
+    --text-muted: #6B7280;
+    --primary: #3B82F6;
+    --success: #22C55E;
+    --danger: #EF4444;
+}
 body {
-    background-color: grey;
+    background-color: var(--bg-main);
     height: 100%;
     width: 100%;
 }
@@ -13,18 +24,18 @@ body {
     z-index: 1;
     display: grid;
     grid-template-columns: 20vw 80vw;
-    grid-template-rows: 20vh 80vh;
+    grid-template-rows: 15vh 85vh;
     grid-template-areas: 
         "nav header"
         "nav main";
-}
-.container > * {
-    outline: 1px black solid;
 }
 
 header {
     grid-area: header;
     display: flex;
+    outline: 1px solid var(--text-muted);
+    box-shadow:0px 2px 15px 5px rgba(0,0,0,0.27) ;
+
 }
 
 header > h1 {
@@ -33,26 +44,48 @@ header > h1 {
 }
 
 nav {
+    background-color: var(--sidebar);
     grid-area: nav;
     display: grid;
     grid-template-rows: 20vh 80vh;
+    grid-template-columns: 1fr;
     place-content: center;
+    color: var(--text-on-black)
 }
 nav > img {
     
     align-self: center;
-    width: 15vw;
+    justify-self: center;
+    max-width: 15vw;
     height: 15vh;
 }
 .navList {
     grid-row: 2 / -1;
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    
     justify-self: center;
-    gap: 15%;
+    justify-content: space-around;
+    padding: 50px 0;
     list-style: none;
 
+}
+
+.navProjectList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    max-height: 300px;
+    justify-content: right;
+    list-style: none;
+    padding-top: 20px;
+    padding-left: 20px;
+    gap: 25px;
+}
+
+.navProjectList > * {
+    width: fit-content;
 }
 
 main {
@@ -73,9 +106,9 @@ main {
 }
 
 .switchItem {
-    position:absolute;
-    top: 40px;
-    left: 30px;
+    width: 60px;
+    height: fit-content;
+    margin-left: 25px;
 }
 
 .projectTitle {
@@ -92,15 +125,65 @@ main {
 
 .itemList {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
     gap: 15px;
 }
 
 .item {
+    padding: 10px;
+    position: relative;
     max-width: 200px;
-    height: 150px;
-    text-align: center;
-    align-content: center;
+    height: 250px;
+    display: grid;
+    text-align: justify;
+    grid-template-rows: 10% 10% 65% 15%;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+
+
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    box-shadow:0px 2px 15px 1px rgba(0,0,0,0.33);
+    outline: 2px solid rgb(202, 202, 202);
+    border-radius: 5px;
+}
+
+
+
+.item > img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 8%;
+    fill: var(--primary);
+}
+
+.item > p {
+    color: var(--text-muted);
+    grid-column: 1 / -1;
+}
+
+.priority {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+}
+.item > h1 {
+    color: var(--text-main);
+}
+
+.validateTaskButton {
+    background-color: var(--success);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    
+}
+
+.deleteItemButton {
+    background-color: var(--danger);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
 }
 
 .focusContainer {
@@ -118,29 +201,41 @@ main {
     justify-content: center;
 
     /* disabling it */
-    
+    display: none;
+   
     
 }
 
 .focusedItem {
     position: relative;
     background-color: rgba(240, 248, 255, 0.466);
-    outline: 1px red solid;
     height: 50vh;
     width: 45vw;
 
     display: flex;
     flex-direction: column;
     padding: 50px 20px;
+    gap: 15px;
     justify-content: space-between;
+    border-radius: 15px;
+    
     
 }
 
-.exit {
+.focusedItem > * {
+    outline: 1px solid rgb(230, 230, 230);
+    background-color: rgba(255, 255, 252, 0.61);
+}
+
+.exitButton {
     position: absolute;
     right: 0px;
-    top: 0px;
-    width: 25px;
+    top: 5px;
+    min-width: 1vw;
+    max-width: 25px;
+    border: none;
+    background-color: transparent;
+    outline: none;
 }
 
 .infoItem {
@@ -149,6 +244,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 80px 30px 30px;
+    padding: 10px;
 }
 
 .infoItem > h1 {
@@ -158,11 +254,15 @@ main {
 .descriptionField {
     height: 100%;
     padding: 20px 0;
+    padding: 10px;
 }
 
 .focusedItemButtons {
     display: flex;
     justify-content: space-evenly;
+    grid-column: 1 / -1;
+    background-color: transparent;
+    outline: none;
 }
 
 .addItemButton {
@@ -171,9 +271,11 @@ main {
     font: inherit;
     cursor: pointer;
     margin: 50px 0px;
-    height: fit-content;
-    width: 50px;
+    width: 20px;
+    height: 20px;
     justify-self: center;
     align-self: center;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    border-radius: 50%;
 }
-
