@@ -7,6 +7,7 @@ export class Item {
     #dueDate
     #priority
     #id
+    // define if task is checklist or default (without checkboxes)
     #type
     static itemArray = []
   
@@ -17,7 +18,6 @@ export class Item {
       this.#priority = priority
       this.#project = project
       this.#id = Item.nbOfItem
-      // define if task is checklist or default (without checkboxes)
       this.#type = type
       Item.nbOfItem++
       Item.itemArray[this.#id] = this
