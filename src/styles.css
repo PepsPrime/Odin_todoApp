@@ -1,0 +1,130 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* CSS reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* end css reset */
+
+/* center all elements*/
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    height: 175px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 4em;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.headerButtons {
+    display: flex;
+    justify-self: center;
+    justify-content: space-evenly;
+    width: 66%;
+    height: 50px;
+}
+
+main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.project {
+    padding: 20px;
+}
+
+h3 {
+    font-size: 2em;
+    padding-bottom: 10px;
+}
+
+ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+    gap: 30px;
+}
+
+
+.taskCard {
+    outline: 1px solid red;
+
+    min-height: 120px;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* main page taskcard ui */
+
+.expandButton {
+    position: absolute;
+    right: 1px;
+    width: 5px;
+}
+
+.taskCardTitle {
+    font-size: 1.6em;
+    word-break: break-all;
+    text-align: center;
+}
+
+.dueDate {
+    
+}
