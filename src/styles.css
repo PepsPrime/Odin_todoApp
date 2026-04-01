@@ -3,128 +3,316 @@
    License: none (public domain)
 */
 /* CSS reset*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
     box-sizing: border-box;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
+
 body {
-	line-height: 1;
+    line-height: 1;
 }
-ol, ul {
-	list-style: none;
+
+ol,
+ul {
+    list-style: none;
 }
-blockquote, q {
-	quotes: none;
+
+blockquote,
+q {
+    quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
+
 /* end css reset */
 
+/* button style reset */
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
+@font-face {
+    font-family: Raleway;
+    src: url(./fonts/Raleway/Raleway-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(./fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf);
+}
+
+/* color palette */
+
+:root {
+    --dark-brown: #422d23;
+    --terracota: #C2632A;
+    --saumon: #E8A87C;
+    --sable: #F5E6D3;
+    --background: #FDFAF7;
+}
+
+body {
+    background-color: var(--dark-brown);
+    height: 100vh;
+    color: var(--dark-brown);
+}
+
 /* center all elements*/
+
 .container {
+
     display: flex;
+    height: 100%;
     flex-direction: column;
     align-items: center;
+    font-family: Raleway, Roboto, system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
 }
 
 header {
     text-align: center;
-    height: 175px;
+    height: 200px;
     width: 100%;
+    background-color: var(--sable);
+    display: flex;
+    flex-direction: column;
+
 }
 
 h1 {
     font-size: 4em;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding: 10px;
+    height: 50%;
+    font-weight: 700;
 }
 
 .headerButtons {
     display: flex;
     justify-self: center;
     justify-content: space-evenly;
-    width: 66%;
+    padding: 0px 10px;
+    width: 100%;
+    height: 50%;
+    background-color: var(--saumon);
+}
+
+.headerButtons>button {
+    width: 20%;
     height: 50px;
+    place-self: center;
+    background-color: var(--sable);
+    font-size: clamp(5%, 5vw, 1.4em);
+    border-radius: 10px;
 }
 
 main {
     width: 80%;
     display: flex;
+    height: 100%;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
+    padding: 20px;
+    background-color: var(--sable);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .project {
     padding: 20px;
+    background-color: var(--terracota);
+    border-radius: 10px;
 }
 
 h3 {
     font-size: 2em;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+
+    color: var(--saumon);
 }
 
 ol {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 30px;
+    padding: 25px;
+    background-color: var(--saumon);
+    border-radius: 10px;
 }
 
 
 .taskCard {
-    outline: 1px solid red;
-
     min-height: 120px;
-    height: fit-content;
+    height: max-content;
+    min-width: 50px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    padding: 5px;
+    background-color: var(--sable);
+    border-radius: 10px;
 }
 
 /* main page taskcard ui */
 
 .expandButton {
     position: absolute;
-    right: 1px;
-    width: 5px;
+    right: 3px;
+    top: 3px;
+
+}
+
+.expandButton>img {
+    width: 15px;
 }
 
 .taskCardTitle {
     font-size: 1.6em;
     word-break: break-all;
+    grid-column: 1/ -1;
     text-align: center;
 }
 
-.dueDate {
-    
+.dueDate,
+.priority,
+.taskCardTitle,
+.deleteTaskButton,
+.validateTaskButton {
+    place-self: center;
+}
+
+.description {
+    grid-column: 1 / -1;
+    padding: 10px 0 20px 0;
+    background-color: var(--background);
+    min-height: 125px;
+    max-height: fit-content;
+    border-radius: 10px;
+    word-break: normal;
+    margin: 10px 0;
+}
+
+.validateTaskButton>img,
+.deleteTaskButton>img {
+    width: 25px;
 }
